@@ -11,6 +11,10 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+
   def create
     @post = Post.new
     @post.title = params[:title]
@@ -19,5 +23,8 @@ class PostsController < ApplicationController
     redirect_to post_path(@post)
   end
 
+  def update
+
+  end
   # add edit and update methods here
 end

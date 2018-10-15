@@ -625,3 +625,59 @@ Processing by PostsController#edit as HTML
   [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
   Rendered posts/edit.html.erb within layouts/application (16.6ms)
 Completed 200 OK in 34ms (Views: 33.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts" for ::1 at 2018-10-15 17:46:49 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 504ms (Views: 491.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/new" for ::1 at 2018-10-15 17:47:13 -0400
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 25ms (Views: 24.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/1/edit" for ::1 at 2018-10-15 17:47:29 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/edit.erb within layouts/application (38.7ms)
+Completed 200 OK in 80ms (Views: 70.0ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/posts/1" for ::1 at 2018-10-15 17:47:45 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"f3rXvYRYHzYgw8wE03lj85e8ZD95PfkyPeuWxk60r0SOVzYsIT3BKPab2n3DSG/o8Wzy2dsrWSvlRUzkGvY/8Q==", "post"=>{"title"=>"Rails Quiz", "description"=>""}, "commit"=>"Submit Post", "id"=>"1"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  UPDATE "posts" SET "title" = ?, "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?  [["title", nil], ["description", nil], ["updated_at", "2018-10-15 21:47:45.645647"], ["id", 1]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 13ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/posts/1" for ::1 at 2018-10-15 17:47:45 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 42ms (Views: 35.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for ::1 at 2018-10-15 17:47:51 -0400
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 27ms (Views: 24.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/1" for ::1 at 2018-10-15 17:47:59 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 27ms (Views: 25.0ms | ActiveRecord: 0.2ms)
